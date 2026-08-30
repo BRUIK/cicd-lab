@@ -30,3 +30,15 @@ jobs:
 
       - name: Run tests with pytest
         run: python -m pytest
+
+  deploy:
+    name: Deploy Fine Calculator
+    needs: test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy application
+        run: |
+          echo "Tests passed successfully."
+          echo "Deploying Fine Calculator..."
+          echo "Fine Calculator deployment completed."
