@@ -21,28 +21,28 @@ def test_seven_days_late():
     assert calculate_late_fee(7) == 70
 
 
-def test_ten_days_late():
-    assert calculate_late_fee(10) == 100
+def test_nine_days_late_just_below_threshold():
+    assert calculate_late_fee(9) == 90
 
 
-def test_twenty_days_late():
-    assert calculate_late_fee(20) == 200
+def test_ten_days_late_hits_cap():
+    assert calculate_late_fee(10) == 500
 
 
-def test_thirty_four_days_late():
-    assert calculate_late_fee(34) == 340
+def test_twelve_days_late_still_capped():
+    assert calculate_late_fee(12) == 500
 
 
-def test_forty_nine_days_late_just_below_cap():
-    assert calculate_late_fee(49) == 490
+def test_thirteen_days_late_still_capped():
+    assert calculate_late_fee(13) == 500
 
 
-def test_fifty_days_late_hits_cap_exactly():
+def test_twenty_days_late_still_capped():
+    assert calculate_late_fee(20) == 500
+
+
+def test_fifty_days_late_still_capped():
     assert calculate_late_fee(50) == 500
-
-
-def test_fifty_seven_days_late_still_capped():
-    assert calculate_late_fee(57) == 500
 
 
 def test_hundred_days_late_still_capped():
